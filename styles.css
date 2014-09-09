@@ -3,15 +3,17 @@ BODY
   font-family:'Nunito';
   font-weight: 300;
   COLOR: #555555;
+  
 }
 
 /*margin-left:18%;
   margin-right:18%;--
-    text-align:justify;
 */
 
 img {
-    max-width: 100%;
+	float;right; 
+/*	margin: 0px 0px 10px 10px;*/
+   max-width: 45%;
 }
 
 
@@ -53,6 +55,7 @@ highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; OUTLIN
 	font-size:28.0pt;
 	color:#002266;
 	font-weight: 400;
+	max-width: 45%;
 }
 
 .h2_style {
