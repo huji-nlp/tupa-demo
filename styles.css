@@ -1,19 +1,13 @@
-BODY
+body
 {
   font-family:'Nunito';
   font-weight: 300;
   COLOR: #555555;
-  
 }
 
-/*margin-left:18%;
-  margin-right:18%;--
-*/
-
 img {
-	float;right; 
-/*	margin: 0px 0px 10px 10px;*/
-   max-width: 45%;
+	float; right;
+  max-width: 45%;
 }
 
 
@@ -27,20 +21,20 @@ img {
 	text-indent:50px;
 }
 
-BODY 	A:link {font-weight: 400; text-decoration: none; color: #333333; OUTLINE: 0;}
-BODY	A:visited {font-weight: 400; text-decoration: none; color: #333333; OUTLINE: 0;}
-BODY	A:active {font-weight: 400; text-decoration: none; color: #333333; OUTLINE: 0;}
-BODY	A:hover {font-weight: 400; color: #11aaff; OUTLINE: 0;}
+body a:link {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body a:visited {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body a:active {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body a:hover {font-weight: 400; color: #11aaff; outline: 0; }
 
 
 .highlight {
 	font-weight: 400; 
 	text-decoration: none; 
 	color: #333333; 
-	OUTLINE: 0;
+	outline: 0;
 }
 
-highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; OUTLINE: 0;}
+highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; outline: 0; }
 
 
 .publications
@@ -59,7 +53,7 @@ highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; OUTLIN
 }
 
 .h2_style {
-	color:#8E1B27;
+	color:#1A4D11;
 }
 
 li {
