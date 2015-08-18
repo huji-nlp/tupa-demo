@@ -1,61 +1,72 @@
-body
-{
+body .cv {
   font-family:'Nunito';
   font-weight: 300;
   COLOR: #555555;
 }
 
-img {
-	float; right;
-  max-width: 45%;
+body .top {
+  height: 230px;
 }
 
+body .cv .top .avatar img {
+	float: right;
+  max-width: 25%;
+  height: auto;
+  margin: 15px;
+}
 
-.normal{
+body .cv .top .title {
+	font-size:28.0pt;
+	color:#002266;
+	font-weight: 400;
+	max-width: 45%;
+  top: 100px;
+  position: absolute;
+}
+
+body .cv .top .social {
+  top: 200px;
+  position: absolute;
+}
+
+body .cv .text {
   font-family:'Nunito';
   font-weight: 300;
+  font-size: 16px;
   COLOR: #11111;
 }
 
-.code_description{
-	text-indent:50px;
-}
+body .cv a:link {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body .cv a:visited {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body .cv a:active {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
+body .cv a:hover {font-weight: 400; color: #11aaff; outline: 0; }
 
-body a:link {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
-body a:visited {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
-body a:active {font-weight: 400; text-decoration: none; color: #333333; outline: 0; }
-body a:hover {font-weight: 400; color: #11aaff; outline: 0; }
-
-
-.highlight {
+body .cv .highlight {
 	font-weight: 400; 
 	text-decoration: none; 
 	color: #333333; 
 	outline: 0;
 }
 
-highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; outline: 0; }
+body .cv highlight:hover {font-weight: 400; text-decoration: none; color: #11aaff; outline: 0; }
 
-
-.publications
-{
+body .cv .publications {
   margin-bottom:12.0pt;
   margin-top:1em;
   line-height: 1.5;
 }
 
-
-.page_titles{
-	font-size:28.0pt;
-	color:#002266;
-	font-weight: 400;
-	max-width: 45%;
+body .cv .publications .abstract {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
 }
 
-.h2_style {
+body .cv .header {
 	color:#1A4D11;
 }
 
-li {
+body .cv li {
 	margin-bottom:0.3cm;
 }
