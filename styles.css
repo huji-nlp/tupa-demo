@@ -2,31 +2,44 @@ body .cv {
   font-family:'Nunito';
   font-weight: 300;
   COLOR: #555555;
+  margin-left:10%;
+  margin-right:10%;
 }
 
 body .top {
-  height: 230px;
+  overflow: auto;
 }
 
 body .cv .top .avatar img {
-	float: right;
-  max-width: 25%;
+  max-width: 40%;
   height: auto;
   margin: 15px;
+	float: right;
 }
 
 body .cv .top .title {
-	font-size:28.0pt;
+	font-size:4vw;
 	color:#002266;
 	font-weight: 400;
-	max-width: 45%;
-  top: 100px;
-  position: absolute;
+	max-width: 30%;
+  margin-top: 15px;
+  float: left;
+}
+
+body .cv .top .subtitle {
+	font-size:3vw;
+  font-family:'Alef Hebrew';
+	color:#002266;
+	font-weight: 400;
+	max-width: 15%;
+  text-align: right;
+  margin-top: 15px;
+  float: right;
+  clear: left;
 }
 
 body .cv .top .social {
-  top: 200px;
-  position: absolute;
+  clear: both;
 }
 
 body .cv .text {
