@@ -11,19 +11,15 @@ body .top {
 }
 
 body .cv .top .avatar img {
-  max-width: 40%;
-  height: auto;
   margin: 15px;
-	float: right;
+  max-height: 220px;
 }
 
 body .cv .top .title {
 	font-size:4vw;
 	color:#002266;
 	font-weight: 400;
-	max-width: 30%;
   margin-top: 15px;
-  float: left;
 }
 
 body .cv .top .subtitle {
@@ -31,11 +27,8 @@ body .cv .top .subtitle {
   font-family:'Alef Hebrew';
 	color:#002266;
 	font-weight: 400;
-	max-width: 15%;
   text-align: right;
   margin-top: 15px;
-  float: right;
-  clear: left;
 }
 
 body .cv .top .social {

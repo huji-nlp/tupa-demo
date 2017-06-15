@@ -41,26 +41,29 @@
 
   <a name="top"></a>
 
-  <div class="top">
-    <div class="avatar">
-      <img align="right" height="100%" src="index_files/daniel_hershcovich.jpg">
+  <div class="top container">
+    <div class="row">
+      <div class="col-md-4 title">Daniel Hershcovich</div>
+      <div class="col-md-4 subtitle">דניאל הרשקוביץ</div>
+      <div class="col-md-4 avatar">
+        <img class="img-responsive" src="index_files/daniel_hershcovich.jpg">
+      </div>
     </div>
-    <div class="title">Daniel Hershcovich</div>
-    <div class="subtitle">דניאל הרשקוביץ</div>
-    <div class="social">
-      <a href="https://www.facebook.com/daniel.hershcovich" target="_blank"><i class="icon-2x icon-facebook-sign"></i></a>
-      <a href="https://plus.google.com/+DanielHershcovich" target="_blank"><i class="icon-2x icon-googleplus-sign"></i></a>
-      <a href="http://il.linkedin.com/in/danielhershcovich" target="_blank"><i class="icon-2x icon-linkedin-sign"></i></a>
-      <a href="https://twitter.com/daniel_hers" target="_blank"><i class="icon-2x icon-twitter-sign"></i></a>
-      <a href="https://www.goodreads.com/user/show/25285662-daniel-hershcovich" target="_blank"><i class="icon-2x icon-goodreads-sign"></i></a>
-      <a href="https://github.com/danielhers" target="_blank"><i class="icon-2x icon-github-sign"></i></a>
+    <div class="row">
+      <div class="social">
+        <a href="https://www.facebook.com/daniel.hershcovich" target="_blank"><i class="icon-2x icon-facebook-sign"></i></a>
+        <a href="https://plus.google.com/+DanielHershcovich" target="_blank"><i class="icon-2x icon-googleplus-sign"></i></a>
+        <a href="http://il.linkedin.com/in/danielhershcovich" target="_blank"><i class="icon-2x icon-linkedin-sign"></i></a>
+        <a href="https://twitter.com/daniel_hers" target="_blank"><i class="icon-2x icon-twitter-sign"></i></a>
+        <a href="https://www.goodreads.com/user/show/25285662-daniel-hershcovich" target="_blank"><i class="icon-2x icon-goodreads-sign"></i></a>
+        <a href="https://github.com/danielhers" target="_blank"><i class="icon-2x icon-github-sign"></i></a>
+      </div>
     </div>
   </div>
 
   <hr>
 
-  <p><a name=short-bio></a>
-  <h2 class="header">Short Bio</h2>
+  <h2 class="header"><a name=short-bio></a>Short Bio</h2>
 
   <div class="text" style="text-align:justify">
     <p>I am a Ph.D. student in the <a href="http://elsc.huji.ac.il/phd">Program in Brain Research: Computation and Information Processing</a> of the <a href="http://elsc.huji.ac.il/">Edmond &amp; Lily Safra Center for Brain Sciences.</a>
@@ -85,17 +88,27 @@
 
   <div class="menu"></div>
 
-  <p><a name=publications></a>
+  <h2 class="header"><a name=news></a>News</h2>
 
-  <h2 class="header" style="display: inline">Publications</h2>
+  <div class="news">
+    <ul>
+      <li><b><a href="#acl2017">Outstanding paper</a></b> on UCCA parsing in ACL 2017!</li>
+      <li>You are invited to <a href="iscol2017">ISCOL 2017</a> at the Hebrew University on September 25.</li>
+    </ul>
+  </div>
+
+
+  <div class="menu"></div>
+
+  <h2 class="header" style="display: inline"><a name=publications></a>Publications</h2>
   (<a href="http://scholar.google.com/citations?user=479qIucAAAAJ&amp;hl=en" target="_blank">on Google Scholar</a>)
 
   <div class="publications">
     <h3><font color="black"> 2017 </font></h3>
     <ul>
 
-      <li>
-      <a href="acl2017.pdf">
+      <li><a name="acl2017"></a>
+      <a href="P17-1104.pdf">
         <i>A Transition-Based Directed Acyclic Graph Parser for UCCA</i>
       </a>
       <br>
@@ -103,12 +116,12 @@
       In proceedings of <a href='http://acl2017.org' target="_blank">ACL 2017</a>
       <span style="color:red">(Outstanding Paper Award)</span>
       <br>
-      <a href="#" class="btn btn-default btn-xs" onclick="$('#acl2017_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
-      <a href="acl2017_supp.pdf" class="btn btn-default btn-xs">supplementary material</a>
-      <a href="acl2017.bib" class="btn btn-default btn-xs">bib</a>
+      <a href="#" class="btn btn-default btn-xs" onclick="$('#P17-1104_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
+      <a href="P17-1104_supp.pdf" class="btn btn-default btn-xs">supplementary material</a>
+      <a href="P17-1104.bib" class="btn btn-default btn-xs">bib</a>
       <a href="https://github.com/danielhers/tupa" class="btn btn-default btn-xs">code</a>
       <a href="https://github.com/danielhers/ucca-corpus" class="btn btn-default btn-xs">data</a>
-      <div id="acl2017_abstract" class="abstract" style="display:none;"> 
+      <div id="P17-1104_abstract" class="abstract" style="display:none;"> 
         <i>We present the first parser for UCCA, a cross-linguistically applicable framework for semantic representation, which builds on extensive typological work and supports rapid annotation. UCCA poses a challenge for existing parsing techniques, as it exhibits reentrancy (resulting in DAG structures), discontinuous structures and non-terminal nodes corresponding to complex semantic units. To our knowledge, the conjunction of these formal properties is not supported by any existing parser.  Our transition-based parser, which uses a novel transition set and features based on bidirectional LSTMs, has value not just for UCCA parsing: its ability to handle more general graph structures can inform the development of parsers for other semantic DAG structures, and in languages that frequently use discontinuous structures.</i>
       </div>
       </li>
@@ -203,8 +216,28 @@
 
   <div class="menu"></div>
 
-  <h2 class="header"><a name="teaching"></a>Teaching</h2>
+  <h2 class="header"><a name="talks"></a>Talks</h2>
+  <ul>
+    <li>
+    <a href="iscol2016_slides.pdf">
+      <i>Broad-Coverage Semantic Parsing: A Transition-Based Approach</i>
+    </a>
+    <br>
+    The Israeli Seminar on Computational Linguistics, <a href='https://tce.technion.ac.il/events/iscol-2016/' target="_blank">ISCOL 2016</a> (05/2016)
+    </li>
 
+    <li>
+    <a href="learningclub2016_slides.pdf">
+      <i>Broad-Coverage Transition-Based UCCA Parsing</i>
+    </a>
+    <br>
+    Hebrew University, <a href='http://www.cs.huji.ac.il/news-and-events/seminars/learning-club' target="_blank">Computer Science Learning Club</a> (11/2016)
+    </li>
+  </ul>
+
+  <div class="menu"></div>
+
+  <h2 class="header"><a name="teaching"></a>Teaching</h2>
   <ul>
     <li>Human Language from a Computational Perspective (TA):
       <a href="http://moodle.huji.ac.il/hu14/course/view.php?id=67127">2014</a>,
