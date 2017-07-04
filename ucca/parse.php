@@ -1,4 +1,15 @@
 <?php
-$output = shell_exec("(echo $_POST["input"] | /cs/nlp/danielh/workspace/ucca_dynet/.virtualenv/bin/python /cs/nlp/danielh/workspace/ucca_dynet/parsing/parse.py -c mlp -m models/ucca_mlp -WeCLM /cs/nlp/danielh/workspace/ucca_dynet/doc/toy.xml)");
-echo "<pre>$output</pre>";
+$url = "http://trurl:5001/parse";
+$data = array("input" => $_POST["input"]);
+
+$options = array(
+    "http" => array(
+        "header"  => "Content-type: application/x-www-form-urlencoded\r\n",
+        "method"  => "POST",
+        "content" => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+var_dump($result);
 ?>
