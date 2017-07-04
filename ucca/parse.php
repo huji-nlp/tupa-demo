@@ -9,7 +9,9 @@ $options = array(
         "content" => http_build_query($data)
     )
 );
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-var_dump($result);
+$context = stream_context_create($options);
+header('Content-type: application/xml; charset=utf-8');
+$xml = simplexml_load_string(file_get_contents($url, false, $context));
+$dom = dom_import_simplexml($xml);
+echo $dom->ownerDocument->saveXML($dom->ownerDocument->documentElement);
 ?>
