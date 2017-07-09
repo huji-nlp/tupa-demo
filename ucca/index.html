@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>UCCA Parser Demo</title>
+    <title>TUPA Demo</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="main.js"></script>
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -13,63 +13,91 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
+</head>
+<body>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
+<script type="text/javascript">
+    $(document).ready(function() {
         $('#loader').hide();
         $.urlParam = function(name){
-          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-          if(results) return results[1] || 0;
-          else return 0;
-        }
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if(results) return results[1] || 0;
+            else return 0;
+        };
         $.sendRequest = function(text) {
-          $('#loader').show(100);
-          $.post("parse.php", $("#demo").serialize(),
-            function(data){
-              var xml = new XMLSerializer().serializeToString(data);
-              $.post("visualize.php", xml,
+            $('#loader').show(100);
+            $.post("parse.php", $("#demo").serialize(),
                 function(data){
-                  $("#graph").attr("src", "data:image/png;base64," + data);
+                    var xml = new XMLSerializer().serializeToString(data);
+                    $.post("visualize.php", xml,
+                        function(data){
+                            $("#graph").attr("src", "data:image/png;base64," + data);
+                        }
+                    );
+                    $("#xml").text(xml);
+                    $('pre code').each(function(i, block) {
+                        hljs.highlightBlock(block);
+                    });
+                    $('#loader').hide();
                 }
-              );
-              $("#xml").text(xml);
-              $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-              });
-              $('#loader').hide();
-            }
-          );
+            );
         };
         $('#parseButton').click(function () {
-          if ($.trim($("#input").val()) != '') $.sendRequest();
+            if ($.trim($("#input").val()) != '') $.sendRequest();
         });
         var inputParam = $.urlParam('input');
         if(inputParam != '') {
-          $("#input").val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
-          $("#parseButton").click();
+            $("#input").val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
+            $("#parseButton").click();
         }
-      });
-    </script>
+    });
+</script>
 
-    <form action="" id="demo" style="font-family: Montserrat; margin: 25px auto 30px; max-width: 80%;">
-      <p>
-      <b>Input text:</b>
-      <br>
-      <textarea id="input", name="input" placeholder="e.g., After graduation, John moved to New York City." rows="3" class="form-control"></textarea>
-      <br>
-      <input type="button" id="parseButton" value="Parse" class="btn btn-default">
-      <div id="loader" class="text-center">
+<div class="container">
+    <div class="row" style="font-family: Roboto,sans-serif;font-size:14pt;">
+        <div class="col-md-8">
+            <h1>Transition-Based UCCA Parser</h1>
+            <p><a href="http://www.cs.huji.ac.il/~oabend/ucca.html">Universal Conceptual Cognitive Annotation (UCCA)</a>
+                is a cross-linguistic and intuitive semantic representation scheme.
+                It was developed in the Computational Linguistics Lab of the Computer Science Department of the Hebrew University
+                by <a href="http://www.cs.huji.ac.il/~oabend">Omri Abend</a> and <a href="http://www.cs.huji.ac.il/~arir">Ari Rappoport</a>.</p>
+            <p>This is a demo for <strong>TUPA</strong>, a transition-based UCCA parser.
+                Given a passage, it shows a visualization of the automatically parsed UCCA graph,
+                and XML which can be loaded using the <a href="https://github.com/danielhers/ucca">UCCA toolkit</a>.</p>
+            <p>TUPA was developed by <a href="http://www.cs.huji.ac.il/~danielh">Daniel Hershcovich</a>.
+                The source code can be found <a href="https://github.com/danielhers/tupa">on GitHub</a>.</p>
+        </div>
+        <div class="col-md-4">
+            <div class="text-right">
+                <img src="img/huji_banner.png" class="img-responsive">
+                <img src="img/cse_banner.png" class="img-responsive">
+            </div>
+            TUPA is described in the following <a href="http://www.cs.huji.ac.il/~danielh/acl2017.pdf">paper</a>:
+            <pre>@inproceedings{hershcovich2017a,
+  title={A Transition-Based Directed Acyclic Graph Parser for {UCCA}},
+  author={Hershcovich, Daniel and Abend, Omri and Rappoport, Ari},
+  booktitle={Proc. of ACL},
+  year={2017}
+}</pre>
+        </div>
+    </div>
+</div>
+
+<form action="" id="demo">
+    <b>Input text:</b>
+    <br>
+    <textarea id="input" name="input" placeholder="e.g., After graduation, John moved to New York City." rows="3" class="form-control"></textarea>
+    <br>
+    <input type="button" id="parseButton" value="Parse" class="btn btn-default">
+    <div id="loader" class="text-center">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-      </div>
+    </div>
 
-      </p>
+    <img id="graph"/>
+    <br>
+    <pre><code class="xml"><div id="xml"></div></code></pre>
 
-      <img style="display:block;margin-left:auto;margin-right:auto" id="graph"/>
-      <pre><code class="xml"><div id="xml" style="font-family: monospace"></div></code></pre>
+</form>
 
-    </form>
-
-  </body>
+</body>
 </html>

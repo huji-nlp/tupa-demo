@@ -1,10 +1,13 @@
-body { font-family: Helvetica, Arial, sans-serif; }
-blockquote.intro { width: 600px; text-align: justify;  }
-span.r { color: red; }
-span.b { color: blue; }
-span.tt { font-family: monospace; }
-.m { background: #ffe96c; }
-
+form {
+    font-family: Montserrat, sans-serif;
+    margin: 25px auto 30px;
+    max-width: 80%;
+}
+img {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 tt, pre {
 	font-family:
 		"Liberation Mono",
@@ -16,5 +19,11 @@ tt, pre {
 		monospace;
 	font-size: 10pt;
 }
-
+code.xml {
+    font-family: monospace;
+}
+span.r { color: red; }
+span.b { color: blue; }
+span.tt { font-family: monospace; }
+.m { background: #ffe96c; }
 .item { white-space: nowrap; display: inline;  }
