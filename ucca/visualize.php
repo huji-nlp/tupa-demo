@@ -1,5 +1,6 @@
 <?php
-$url = "http://trurl:5001/visualize";
+$server = file_get_contents("server_name.txt");
+$url = "http://$server/visualize";
 $data = file_get_contents('php://input');
 
 $options = array(

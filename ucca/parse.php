@@ -1,5 +1,6 @@
 <?php
-$url = "http://trurl:5001/parse";
+$server = file_get_contents("server_name.txt");
+$url = "http://$server/parse";
 $data = array("input" => $_POST["input"]);
 
 $options = array(
