@@ -81,23 +81,44 @@
 }</pre>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-10">
+            <form action="" id="demo">
+                <b>Input text:</b>
+                <br>
+                <textarea id="input" name="input" placeholder="e.g., After graduation, John moved to New York City." rows="3" class="form-control"></textarea>
+                <br>
+                <input type="button" id="parseButton" value="Parse" class="btn btn-default">
+                <div id="loader" class="text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+                </div>
 
-<form action="" id="demo">
-    <b>Input text:</b>
-    <br>
-    <textarea id="input" name="input" placeholder="e.g., After graduation, John moved to New York City." rows="3" class="form-control"></textarea>
-    <br>
-    <input type="button" id="parseButton" value="Parse" class="btn btn-default">
-    <div id="loader" class="text-center">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+                <img id="graph"/>
+                <br>
+                <pre><code class="xml"><div id="xml"></div></code></pre>
+
+            </form>
+        </div>
+        <div class="col-md-2">
+            <h4>Legend</h4>
+            <table class="table table-hover">
+                <tr><td>P</td><td>process</td></tr>
+                <tr><td>S</td><td>state</td></tr>
+                <tr><td>A</td><td>participant</td></tr>
+                <tr><td>L</td><td>linker</td></tr>
+                <tr><td>H</td><td>linked scene</td></tr>
+                <tr><td>C</td><td>center</td></tr>
+                <tr><td>E</td><td>elaborator</td></tr>
+                <tr><td>D</td><td>adverbial</td></tr>
+                <tr><td>R</td><td>relator</td></tr>
+                <tr><td>N</td><td>connector</td></tr>
+                <tr><td>U</td><td>punctuation</td></tr>
+                <tr><td>F</td><td>function</td></tr>
+                <tr><td>G</td><td>ground</td></tr>
+            </table>
+        </div>
     </div>
-
-    <img id="graph"/>
-    <br>
-    <pre><code class="xml"><div id="xml"></div></code></pre>
-
-</form>
+</div>
 
 </body>
 </html>
