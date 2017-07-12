@@ -39,9 +39,11 @@
             $('#loader').show(100);
             $.post("parse.php", $("#demo").serialize(),
                 function(data){
+                    ga('send', 'pageview', '/parse.php');
                     var xml = new XMLSerializer().serializeToString(data);
                     $.post("visualize.php", xml,
                         function(data){
+                            ga('send', 'pageview', '/visualize.php');
                             $("#graph").attr("src", "data:image/png;base64," + data);
                         }
                     );
