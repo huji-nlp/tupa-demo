@@ -53,16 +53,17 @@
                 </div>
                 <div class="row top-buffer">
                     <button type="button" id="parseButton" class="btn btn-primary">Parse</button>
-                    <div class="dropdown ml-auto">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <input type="hidden" id="format" value="">
+                    <div id="downloadButton" class="dropdown ml-auto" hidden>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="downloadDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Download
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">XML</a>
-                            <a class="dropdown-item" href="#">JSON</a>
-                            <a class="dropdown-item" href="#">NeGra Export</a>
-                            <a class="dropdown-item" href="#">CoNLL-X</a>
-                            <a class="dropdown-item" href="#">SDP</a>
+                        <div class="dropdown-menu" aria-labelledby="downloadDropdown">
+                            <a class="dropdown-item" href="#" data-value="xml">XML</a>
+                            <a class="dropdown-item" href="#" data-value="json">JSON</a>
+                            <a class="dropdown-item" href="#" data-value="export">NeGra Export</a>
+                            <a class="dropdown-item" href="#" data-value="conll">CoNLL-X</a>
+                            <a class="dropdown-item" href="#" data-value="sdp">SDP</a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,7 @@
 
                 <img id="graph"/>
                 <br>
-                <pre><code class="xml"><div id="xml"></div></code></pre>
+                <pre><code class="xml"><div id="output"></div></code></pre>
 
             </form>
         </div>
@@ -113,42 +114,44 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function(){
         $('#loader').hide();
         $.urlParam = function(name){
             var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
             if(results) return results[1] || 0;
             else return 0;
         };
-        $.sendRequest = function(text) {
-            $('#loader').show(100);
-            $.post("parse.php", $("#demo").serialize(),
-                function(data){
-                    ga('send', 'pageview', '/parse.php');
-                    var xml = new XMLSerializer().serializeToString(data);
-                    $.post("visualize.php", xml,
-                        function(data){
-                            ga('send', 'pageview', '/visualize.php');
-                            $("#graph").attr("src", "data:image/png;base64," + data);
-                        }
-                    );
-                    $("#xml").text(xml);
-                    $('pre code').each(function(i, block) {
-                        hljs.highlightBlock(block);
-                    });
-                    $('#loader').hide();
-                }
-            );
-        };
         var parseButton = $('#parseButton');
-        parseButton.click(function () {
-            if ($.trim($("#input").val()) !== '') $.sendRequest();
+        $.sendRequest = function(){
+            $('#loader').show(100);
+            $.post("parse.php", $("#demo").serialize(), function(output){
+                ga('send', 'pageview', '/parse.php');
+                $.post("parse.php", output, function(data){
+                    $("#graph").attr("src", "data:image/png;base64," + data);
+                });
+                $("#output").text(output);
+                $('pre code').each(function(i, block){
+                    hljs.highlightBlock(block);
+                });
+                $('#loader').hide();
+            });
+        };
+        parseButton.click(function(){
+            if ($.trim($("#input").val()) !== '') {
+                $.sendRequest();
+            }
+            $('#format').val('');
         });
         var inputParam = $.urlParam('input');
-        if(inputParam !== '') {
+        if(inputParam) {
             $("#input").val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
+            $('#format').val($.urlParam('format'));
             parseButton.click();
         }
+        $('#downloadButton').find('.dropdown-menu .dropdown-item').click(function(){
+            $('#format').val($(this).data('value'));
+            parseButton.click();
+        });
     });
 </script>
 </body>
