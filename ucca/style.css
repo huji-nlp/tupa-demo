@@ -8,15 +8,8 @@ img {
     margin-left:auto;
     margin-right:auto;
 }
-tt, pre {
-	font-family:
-		"Liberation Mono",
-		"Ubuntu Monospace",
-		monaco,
-		"Lucida Console",
-		"Droid Sans Mono",
-		"DejaVu Sans Mono",
-		monospace;
+pre {
+	font-family: monospace;
 	font-size: 10pt;
 }
 code.xml {
@@ -27,3 +20,4 @@ span.b { color: blue; }
 span.tt { font-family: monospace; }
 .m { background: #ffe96c; }
 .item { white-space: nowrap; display: inline;  }
+.top-buffer { margin-top:10px; }
