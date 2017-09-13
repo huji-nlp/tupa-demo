@@ -53,6 +53,18 @@
                 </div>
                 <div class="row top-buffer">
                     <button type="button" id="parseButton" class="btn btn-primary">Parse</button>
+                    <div class="dropdown ml-auto">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Download
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">XML</a>
+                            <a class="dropdown-item" href="#">JSON</a>
+                            <a class="dropdown-item" href="#">NeGra Export</a>
+                            <a class="dropdown-item" href="#">CoNLL-X</a>
+                            <a class="dropdown-item" href="#">SDP</a>
+                        </div>
+                    </div>
                 </div>
                 <div id="loader" class="text-center">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
@@ -128,13 +140,14 @@
                 }
             );
         };
-        $('#parseButton').click(function () {
-            if ($.trim($("#input").val()) != '') $.sendRequest();
+        var parseButton = $('#parseButton');
+        parseButton.click(function () {
+            if ($.trim($("#input").val()) !== '') $.sendRequest();
         });
         var inputParam = $.urlParam('input');
-        if(inputParam != '') {
+        if(inputParam !== '') {
             $("#input").val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
-            $("#parseButton").click();
+            parseButton.click();
         }
     });
 </script>
