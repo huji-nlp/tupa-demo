@@ -2,7 +2,11 @@
 $server = file_get_contents("server_name.txt");
 if(isset($_POST["action"])){
     $action = $_POST["action"];
-    $data = http_build_query(array("input" => $_POST["input"]));
+    if($action == "parse"){
+        $data = http_build_query(array("input" => $_POST["input"]));
+    }elseif($action == "download"){
+        $data = http_build_query(array("input" => $_POST["xml"], "format" => $_POST["format"]));
+    }
 }else{
     $action = "visualize";
     $data = file_get_contents('php://input');
