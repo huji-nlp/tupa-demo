@@ -1,11 +1,10 @@
 <?php
 $server = file_get_contents("server_name.txt");
-$url = "http://$server/";
-if(isset($_POST["input"])){
-    $url .= "parse";
+if(isset($_POST["action"])){
+    $action = $_POST["action"];
     $data = http_build_query(array("input" => $_POST["input"]));
 }else{
-    $url .= "visualize";
+    $action = "visualize";
     $data = file_get_contents('php://input');
 }
 
@@ -18,5 +17,5 @@ $options = array(
 );
 $context = stream_context_create($options);
 header("Content-type: text/plain; charset=utf-8");
-echo file_get_contents($url, false, $context);
+echo file_get_contents("http://$server/$action", false, $context);
 ?>
