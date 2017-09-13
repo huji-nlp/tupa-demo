@@ -53,8 +53,8 @@
                 </div>
                 <div class="row top-buffer">
                     <button type="button" id="parseButton" class="btn btn-primary">Parse</button>
-                    <input type="hidden" name="action" value="parse">
-                    <input type="hidden" name="format" id="format" value="xml">
+                    <input type="hidden" name="action" id="action" value="parse">
+                    <input type="hidden" name="format" id="format" value="">
                     <div id="downloadButton" class="dropdown ml-auto" hidden>
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="downloadDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Download
@@ -116,42 +116,56 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#loader').hide();
+        var $parseButton = $('#parseButton');
+        var $action = $('#action');
+        var $format = $('#format');
+        var $loader = $('#loader');
+        var $input = $("#input");
+        var $output = $("#output");
+        $loader.hide();
         $.urlParam = function(name){
             var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
             if(results) return results[1] || 0;
             else return 0;
         };
-        var parseButton = $('#parseButton');
         $.sendRequest = function(){
-            $('#loader').show(100);
-            $.post("parse.php", $("#demo").serialize(), function(output){
-                ga('send', 'pageview', '/parse.php');
-                $.post("parse.php", output, function(data){
-                    $("#graph").attr("src", "data:image/png;base64," + data);
-                });
-                $("#output").text(output);
-                $('pre code').each(function(i, block){
-                    hljs.highlightBlock(block);
-                });
-                $('#loader').hide();
+            $loader.show(100);
+            $.post("action.php", $("#demo").serialize(), function(output){
+                ga('send', 'pageview', '/action.php');
+                if($action.val() === 'parse'){
+                    $.post("action.php", output, function (data) {
+                        $("#graph").attr("src", "data:image/png;base64," + data);
+                    });
+                    $output.text(output);
+                    $('pre code').each(function (i, block) {
+                        hljs.highlightBlock(block);
+                    });
+                    $loader.hide();
+                }else if($action.val() === 'download'){
+                    $("body").append("<iframe src='" + output.url+ "' style='display: none;' ></iframe>");
+                }
             });
         };
-        parseButton.click(function(){
-            if ($.trim($("#input").val()) !== '') {
+        $parseButton.click(function(){
+            if ($.trim($input.val()) !== '') {
                 $.sendRequest();
+                if ($format.val() !== '') {
+                    $action.val('download');
+                    $.sendRequest();
+                }
             }
-            $('#format').val('');
+            $action.val('parse');
+            $format.val('');
         });
         var inputParam = $.urlParam('input');
         if(inputParam) {
-            $("#input").val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
-            $('#format').val($.urlParam('format'));
-            parseButton.click();
+            $input.val(decodeURIComponent(inputParam.replace(/\+/g, ' ')));
+            $format.val($.urlParam('format'));
+            $parseButton.click();
         }
         $('#downloadButton').find('.dropdown-menu .dropdown-item').click(function(){
-            $('#format').val($(this).data('value'));
-            parseButton.click();
+            $format.val($(this).data('value'));
+            $parseButton.click();
         });
     });
 </script>
