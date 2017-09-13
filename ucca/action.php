@@ -13,7 +13,6 @@ if (isset($_POST["action"])) {
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        $action = "parse";
         $data = http_build_query(array("input" => $_POST["xml"], "format" => $format));
     }
 } else {
