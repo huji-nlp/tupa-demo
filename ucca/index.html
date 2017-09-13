@@ -180,7 +180,6 @@
         var $format = $('#format');
         var $loader = $('#loader');
         var $input = $("#input");
-        var $output = $("#output");
         var $xml = $("#xml");
         $loader.hide();
         $.urlParam = function (name) {
@@ -205,7 +204,7 @@
                     $.post("action.php", output, function (data) {
                         $("#graph").attr("src", "data:image/png;base64," + data);
                     });
-                    $output.text(output);
+                    $("#output").text(output);
                     $xml.val(output);
                     $('pre code').each(function (i, block) {
                         hljs.highlightBlock(block);
