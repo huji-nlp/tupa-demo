@@ -20,6 +20,17 @@ $options = array(
     )
 );
 $context = stream_context_create($options);
-header("Content-type: text/plain; charset=utf-8");
+if($action == "download"){
+    $format = $_POST["format"];
+    header('Content-description: File Transfer');
+    header("Content-disposition: attachment; filename=\"out.$format\"");
+    header("Content-type: application/octet-stream");
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    $action = "parse";
+}else{
+    header("Content-type: text/plain; charset=utf-8");
+}
 echo file_get_contents("http://$server/$action", false, $context);
 ?>

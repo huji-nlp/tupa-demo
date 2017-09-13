@@ -49,7 +49,7 @@
     </div>
     <div class="row">
         <div class="col-md-10">
-            <form action="" id="demo">
+            <form id="demo" action="action.php" method="post">
                 <div class="row"><b>Input text:</b></div>
                 <div class="row">
                     <textarea id="input" name="input" placeholder="e.g., After graduation, John moved to New York City."
@@ -189,9 +189,7 @@
         $.sendDownloadRequest = function () {
             if ($format.val() !== '' && $xml.val() !== '') {
                 $action.val('download');
-                $.post("action.php", $("#demo").serialize(), function (data) {
-                    $("body").append("<iframe src='" + data.url + "' style='display: none;' ></iframe>");
-                });
+                $("#demo").submit();
                 $action.val('parse');
                 $format.val('');
             }
