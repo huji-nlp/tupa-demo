@@ -188,7 +188,7 @@
             else return 0;
         };
         $.sendDownloadRequest = function () {
-            if ($format.val() !== '' && $xml.val() !== '') {
+            if ($format.val() && $xml.val()) {
                 $action.val('download');
                 $("#demo").submit();
                 $action.val('parse');
@@ -196,8 +196,7 @@
             }
         };
         $.sendRequest = function () {
-            $.sendDownloadRequest();
-            if ($.trim($input.val()) !== '') {
+            if ($.trim($input.val())) {
                 $loader.show(100);
                 $.post("action.php", $("#demo").serialize(), function (output) {
                     ga('send', 'pageview', '/action.php');
@@ -223,7 +222,11 @@
         }
         $('#downloadButton').find('.dropdown-menu .dropdown-item').click(function () {
             $format.val($(this).data('value'));
-            $parseButton.click();
+            if ($xml.val()) {
+                $.sendDownloadRequest();
+            } else {
+                $parseButton.click();
+            }
         });
     });
 </script>
