@@ -76,3 +76,12 @@ body .cv .header {
 body .cv li {
 	margin-bottom:0.3cm;
 }
+
+.v-center {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+}
