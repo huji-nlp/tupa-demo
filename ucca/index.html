@@ -196,6 +196,7 @@
             }
         };
         $.sendRequest = function () {
+            //alert("Sorry, the demo is currently undergoing maintenance. It will be back soon.");
             if ($.trim($input.val())) {
                 $loader.show(100);
                 $.post("action.php", $("#demo").serialize(), function (output) {
