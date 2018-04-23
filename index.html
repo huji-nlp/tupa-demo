@@ -97,8 +97,38 @@
     <a href="https://www.semanticscholar.org/author/Daniel-Hershcovich/2086349" target="_blank">on Semantic Scholar</a>)
 
     <div class="publications">
-        <h3>2017</h3>
         <ul>
+
+            <li><a name="acl2018"></a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>
+                            <i>Multitask Parsing Across Semantic Representations</i>
+                        </b>
+                        <br>
+                        Daniel Hershcovich, Omri Abend and Ari Rappoport<br>
+                        In proceedings of <a href='http://acl2018.org' target="_blank">ACL 2018</a>
+                    </div>
+                    <div class="row col-md-3 btn-group mr-2 v-center" role="group">
+                        <a href="#" class="btn btn-outline-primary btn-sm"
+                           onclick="$('#acl2018_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
+                        <a href="acl2018.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="https://github.com/danielhers/tupa" class="btn btn-outline-primary btn-sm">code</a>
+                        <a href="https://github.com/danielhers/wsj" class="btn btn-outline-primary btn-sm">data</a>
+                    </div>
+                    <div id="acl2018_abstract" class="abstract row" style="display:none;">
+                        <i>The ability to consolidate information of different types is at the core of intelligence, and
+                            has tremendous practical value in allowing learning for one task to benefit from
+                            generalizations learned for others. In this paper we tackle the challenging task of
+                            improving semantic parsing performance, taking UCCA parsing as a test case, and AMR, SDP and
+                            Universal Dependencies (UD) parsing as auxiliary tasks. We experiment on three languages,
+                            using a uniform transition-based system and learning architecture for all parsing tasks.
+                            Despite notable conceptual, formal and domain differences, we show that in out-of-domain
+                            settings, or when training data is scarce, multitask learning significantly improves UCCA
+                            parsing.</i>
+                    </div>
+                </div>
+            </li>
 
             <li><a name="acl2017"></a>
                 <div class="row">
@@ -114,31 +144,33 @@
                     <div class="row col-md-3 btn-group mr-2 v-center" role="group">
                         <a href="#" class="btn btn-outline-primary btn-sm"
                            onclick="$('#P17-1104_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
-                        <a href="P17-1104_supp.pdf" class="btn btn-outline-primary btn-sm">supplementary material</a>
                         <a href="P17-1104.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="P17-1104_supp.pdf" class="btn btn-outline-primary btn-sm">supplementary material</a>
                         <a href="acl2017_slides.pdf" class="btn btn-outline-primary btn-sm">slides</a>
                         <a href="iscol2017_poster.pdf" class="btn btn-outline-primary btn-sm">poster</a>
                         <a href="https://github.com/danielhers/tupa" class="btn btn-outline-primary btn-sm">code</a>
                         <a href="ucca" class="btn btn-outline-primary btn-sm">demo</a>
-                        <a href="https://github.com/danielhers/ucca-corpus" class="btn btn-outline-primary btn-sm">data</a>
+                        <a href="https://github.com/huji-nlp/ucca-corpora"
+                           class="btn btn-outline-primary btn-sm">data</a>
                     </div>
                     <div id="P17-1104_abstract" class="abstract row" style="display:none;">
-                        <i>We present the first parser for UCCA, a cross-linguistically applicable framework for semantic
-                            representation, which builds on extensive typological work and supports rapid annotation. UCCA
-                            poses a challenge for existing parsing techniques, as it exhibits reentrancy (resulting in DAG
-                            structures), discontinuous structures and non-terminal nodes corresponding to complex semantic
+                        <i>We present the first parser for UCCA, a cross-linguistically applicable framework for
+                            semantic
+                            representation, which builds on extensive typological work and supports rapid annotation.
+                            UCCA
+                            poses a challenge for existing parsing techniques, as it exhibits reentrancy (resulting in
+                            DAG
+                            structures), discontinuous structures and non-terminal nodes corresponding to complex
+                            semantic
                             units. To our knowledge, the conjunction of these formal properties is not supported by any
                             existing parser. Our transition-based parser, which uses a novel transition set and features
-                            based on bidirectional LSTMs, has value not just for UCCA parsing: its ability to handle more
+                            based on bidirectional LSTMs, has value not just for UCCA parsing: its ability to handle
+                            more
                             general graph structures can inform the development of parsers for other semantic DAG
                             structures, and in languages that frequently use discontinuous structures.</i>
                     </div>
                 </div>
             </li>
-        </ul>
-
-        <h3>2015</h3>
-        <ul>
 
             <li>
                 <div class="row">
@@ -153,24 +185,26 @@
                     <div class="row col-md-3 btn-group mr-2 v-center" role="group">
                         <a href="#" class="btn btn-outline-primary btn-sm"
                            onclick="$('#negation_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
-                        <a href="https://aclweb.org/anthology/W15-0511.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="https://aclweb.org/anthology/W15-0511.bib"
+                           class="btn btn-outline-primary btn-sm">bib</a>
                     </div>
                     <div id="negation_abstract" class="abstract" style="display:none;">
                         <i>The main goal of argumentation mining is to analyze argumentative structures within an
-                            argument-rich document, and reason about their composition. Recently, there is also interest in
-                            the task of simply detecting claims (sometimes called conclusion) in general documents. In this
+                            argument-rich document, and reason about their composition. Recently, there is also interest
+                            in
+                            the task of simply detecting claims (sometimes called conclusion) in general documents. In
+                            this
                             work we ask how this set of detected claims can be augmented further, by adding to it the
-                            negation of each detected claim. This presents two NLP problems: how to automatically negate a
-                            claim, and when such a negated claim can plausibly be used. We present first steps into solving
-                            both these problems, using a rule-based approach for the former and a statistical one towards
+                            negation of each detected claim. This presents two NLP problems: how to automatically negate
+                            a
+                            claim, and when such a negated claim can plausibly be used. We present first steps into
+                            solving
+                            both these problems, using a rule-based approach for the former and a statistical one
+                            towards
                             the latter.</i>
                     </div>
                 </div>
             </li>
-        </ul>
-
-        <h3>2014</h3>
-        <ul>
 
             <li>
                 <div class="row">
@@ -188,14 +222,18 @@
                         <a href="http://www.aclweb.org/anthology/C14-1141.bib" class="btn btn-outline-primary btn-sm">bib</a>
                     </div>
                     <div id="cdcd_abstract" class="abstract" style="display:none;">
-                        <i>While discussing a concrete controversial topic, most humans will find it challenging to swiftly
+                        <i>While discussing a concrete controversial topic, most humans will find it challenging to
+                            swiftly
                             raise a diverse set of convincing and relevant claims that should set the basis of their
-                            arguments. Here, we formally define the challenging task of automatic claim detection in a given
+                            arguments. Here, we formally define the challenging task of automatic claim detection in a
+                            given
                             context and discuss its associated unique difficulties. Further, we outline a preliminary
                             solution to this task, and assess its performance over annotated real world data, collected
-                            specifically for that purpose over hundreds of Wikipedia articles. We report promising results
+                            specifically for that purpose over hundreds of Wikipedia articles. We report promising
+                            results
                             of a supervised learning approach, which is based on a cascade of classifiers designed to
-                            properly handle the skewed data which is inherent to the defined task. These results demonstrate
+                            properly handle the skewed data which is inherent to the defined task. These results
+                            demonstrate
                             the viability of the introduced task.</i>
                     </div>
                 </div>
@@ -205,11 +243,13 @@
                 <div class="row">
                     <div class="col-md-4">
                         <a href="http://www.aclweb.org/anthology/C14-2002">
-                            <i>Claims on Demand–an Initial Demonstration of a System for Automatic Detection and Polarity
+                            <i>Claims on Demand–an Initial Demonstration of a System for Automatic Detection and
+                                Polarity
                                 Identification of Context Dependent Claims in Massive Corpora</i>
                         </a>
                         <br>
-                        Ehud Aharoni, Carlos Alzate, Roy Bar-Haim, Yonatan Bilu, Lena Dankin, Iris Eiron, Daniel Hershcovich,
+                        Ehud Aharoni, Carlos Alzate, Roy Bar-Haim, Yonatan Bilu, Lena Dankin, Iris Eiron, Daniel
+                        Hershcovich,
                         Shay Hummel<br>
                         In proceedings of <a href='http://www.coling-2014.org/' target="_blank">COLING 2014</a>
                     </div>
@@ -219,10 +259,13 @@
                         <a href="http://www.aclweb.org/anthology/C14-2002.bib" class="btn btn-outline-primary btn-sm">bib</a>
                     </div>
                     <div id="acedemo_abstract" class="abstract" style="display:none;">
-                        <i>While discussing a concrete controversial topic, most humans will find it challenging to swiftly
+                        <i>While discussing a concrete controversial topic, most humans will find it challenging to
+                            swiftly
                             raise a diverse set of convincing and relevant claims that should set the basis of their
-                            arguments. Here, we demonstrate the initial capabilities of a system that, given a controversial
-                            topic, can automatically pinpoint relevant claims in Wikipedia, determine their polarity with
+                            arguments. Here, we demonstrate the initial capabilities of a system that, given a
+                            controversial
+                            topic, can automatically pinpoint relevant claims in Wikipedia, determine their polarity
+                            with
                             respect to the given topic, and articulate them per the user's request.</i>
                     </div>
                 </div>
@@ -236,18 +279,21 @@
                                 Controversial Topics</i>
                         </a>
                         <br>
-                        Ehud Aharoni, Anatoly Polnarov, Tamar Lavee, Daniel Hershcovich, Ran Levy, Ruty Rinott, Dan Gutfreund,
+                        Ehud Aharoni, Anatoly Polnarov, Tamar Lavee, Daniel Hershcovich, Ran Levy, Ruty Rinott, Dan
+                        Gutfreund,
                         Noam Slonim<br>
                         In proceedings of <a href='http://acl2014.org/' target="_blank">ACL 2014</a>
                     </div>
                     <div class="row col-md-3 btn-group mr-2 v-center" role="group">
                         <a href="#" class="btn btn-outline-primary btn-sm"
                            onclick="$('#acelab_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
-                        <a href="http://anthology.aclweb.org/W14-2109.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="http://anthology.aclweb.org/W14-2109.bib"
+                           class="btn btn-outline-primary btn-sm">bib</a>
                     </div>
                     <div id="acelab_abstract" class="abstract" style="display:none;">
                         <i>We describe a novel and unique argumentative structure dataset. This corpus consists of data
-                            extracted fro m hundreds of Wikipedia articles using a meticulously monitored manual annotation
+                            extracted fro m hundreds of Wikipedia articles using a meticulously monitored manual
+                            annotation
                             process. The result is 2,683 argument elements, collected in the context of 33 controversial
                             topics, organized under a simple claim-evidence structure. The obtained data are publicly
                             available for academic research.</i>
@@ -262,8 +308,10 @@
                             <i>Verification of Transactional Memory in POWER8</i>
                         </a>
                         <br>
-                        Alon Adir, Dave Goodman, Daniel Hershcovich, Oz Hershkovitz, Bryan Hickerson, Karen Holtz, Wisam Kadry,
-                        Anatoly Koyfman, John Ludden, Charles Meissner, Amir Nahir, Randall R Pratt, Mike Schiffli, Brett St
+                        Alon Adir, Dave Goodman, Daniel Hershcovich, Oz Hershkovitz, Bryan Hickerson, Karen Holtz, Wisam
+                        Kadry,
+                        Anatoly Koyfman, John Ludden, Charles Meissner, Amir Nahir, Randall R Pratt, Mike Schiffli,
+                        Brett St
                         Onge, Brian Thompto, Elena Tsanko, Avi Ziv<br>
                         In proceedings of <a
                             href='https://www.ieee.org/conferences_events/conferences/conferencedetails/index.html?Conf_ID=18068'
@@ -276,10 +324,13 @@
                     </div>
                     <div id="power8tx_abstract" class="abstract" style="display:none;">
                         <i>Transactional memory is a promising mechanism for synchronizing concurrent programs that
-                            eliminates locks at the expense of hardware complexity. Transactional memory is a hard feature
-                            to verify. First, transactions comprise several instructions that must be observed as a single
+                            eliminates locks at the expense of hardware complexity. Transactional memory is a hard
+                            feature
+                            to verify. First, transactions comprise several instructions that must be observed as a
+                            single
                             global atomic operation. In addition, there are many reasons a transaction can fail. This
-                            results in a high level of non-determinism which must be tamed by the verification methodology.
+                            results in a high level of non-determinism which must be tamed by the verification
+                            methodology.
                             This paper describes the innovation that was applied to tools and methodology in pre-silicon
                             simulation, acceleration and post-silicon in order to verify transactional memory in the IBM
                             POWER8 processor core.</i>
@@ -356,21 +407,26 @@
     <h2 class="header"><a name="community"></a>Community</h2>
     <ul>
         <li>I co-organized <a href="iscol2017">ISCOL 2017</a> (with Omri Abend, Elior Sulem and Leshem Choshen),
-            the annual meeting of the Israeli seminar on computational linguistics.</li>
+            the annual meeting of the Israeli seminar on computational linguistics.
+        </li>
         <li>I served as a reviewer for ACL 2016, CoNLL 2016, EMNLP 2016, EACL 2017, ACL 2017, EMNLP 2017, IJCNLP 2017
-            and COLING 2018.</li>
+            and COLING 2018.
+        </li>
     </ul>
 
     <hr>
 
     <h2 class="header"><a name="misc"></a>Miscellaneous</h2>
     <ul>
-        <li>Since 2006, I have been volunteering at the <a href="http://2017.iconfestival.org.il/about/en">Icon Festival</a>,
-            the annual Israeli festival for science fiction, fantasy and role-playing.</li>
+        <li>Since 2006, I have been volunteering at the <a href="http://2017.iconfestival.org.il/about/en">Icon
+            Festival</a>,
+            the annual Israeli festival for science fiction, fantasy and role-playing.
+        </li>
         <li>I also practice Kendo (Japanese fencing), and even attended the
             <a href="#"
                onclick="var i = $('#wkc2015'); i.slideToggle(); i.find('img').attr('src', 'index_files/P50530-085633.jpg'); return false;">
-                2015 World Championships in Japan as a delegation manager</a>.</li>
+                2015 World Championships in Japan as a delegation manager</a>.
+        </li>
         <div id="wkc2015" style="display: none"><img style="width: 60%"/></div>
     </ul>
 
@@ -391,7 +447,7 @@
         cs.huji.ac.il</p>
 
     <div class="menu"></div>
-    Last update: 3/2018
+    Last update: 4/2018
 </div>
 
 
