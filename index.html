@@ -420,8 +420,8 @@
             <a href="#"
                onclick="var i = $('#wkc2015'); i.slideToggle(); i.find('img').attr('src', 'index_files/P50530-085633.jpg'); return false;">
                 2015 World Championships in Japan as a delegation manager</a>.
+            <div id="wkc2015" style="display: none"><img src="" style="width: 60%"/></div>
         </li>
-        <div id="wkc2015" style="display: none"><img style="width: 60%"/></div>
     </ul>
 
     <hr>
@@ -434,11 +434,11 @@
         Edmond Safra Campus, Givat Ram <br>
         <a href=http://www.huji.ac.il/ target="_blank">The Hebrew University</a> <br>
         Jerusalem, 91904, Israel <br>
-        <br>
-        danielh
-        <img height=10 src="index_files/strudel.jpg"
-             alt="http://t2.gstatic.com/images?q=tbn:ANd9GcRnm-pxtE54OxUWY3q3tli4cCVmTlhskFKpO3F0D8gm1bsKQgPKQg">
-        cs.huji.ac.il</p>
+        <a id="email" onclick="grecaptcha.execute();" class="g-recaptcha" data-size='invisible'
+           data-sitekey="6Le0cVgUAAAAAHbWBWNX38iGRbfBNlyhhU10OTOc" data-callback="showEmail">
+            d...
+        </a>@cs.huji.ac.il
+    </p>
 
     <div class="menu"></div>
     Last update: 5/2018
@@ -452,10 +452,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 <script>
     $(function () {
         $(".menu").load("menu.html");
     });
+    var showEmail = function () {
+        $("#email").html("danielh");
+    };
 </script>
 
 <script>
