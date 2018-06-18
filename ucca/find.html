@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>UCCA Corpus Explorer</title>
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<form id="query" action="find.php" method="post">
+    <div class="form-group">
+        <label for="pid" class="control-label">Passage ID:</label>
+        <input type="text" id="pid" name="pid" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="text" class="control-label">Text:</label>
+        <input type="text" id="text" name="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="nocase" name="nocase" class="form-check-input">
+        <label for="nocase" class="form-check-label">Case insensitive</label>
+    </div>
+    <div class="form-group">
+        <label for="ftag" class="control-label">Category:</label>
+        <input type="text" id="ftag" name="ftag" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="dep" class="control-label">Dependency:</label>
+        <input type="text" id="dep" name="dep" class="form-control">
+    </div>
+    <button type="button" id="submit" class="btn btn-primary">Find</button>
+</form>
+<div class="container">
+    <div class="row">
+        <div id="loader" class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+        </div>
+    </div>
+    <div class="row">
+        <table id="table" class="table">
+            <thead>
+            <tr>
+                <th scope="col">Passage ID</th>
+                <th scope="col">Terminal ID</th>
+                <th scope="col">Text</th>
+                <th scope="col">Category</th>
+                <th scope="col">Parent</th>
+                <th scope="col">Dependency</th>
+            </tr>
+            </thead>
+            <tbody id="output"></tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js"></script>
+
+<script type="text/javascript">
+    function parseResult(result) {
+        var resultArray = [];
+        result.split("\n").forEach(function(row) {
+            var rowArray = [];
+            row.split("\t").forEach(function(cell) {
+                rowArray.push(cell);
+            });
+            resultArray.push(rowArray);
+        });
+        return resultArray;
+    }
+    function createTable(array) {
+        var content = "";
+        array.forEach(function(row) {
+            content += "<tr>";
+            row.forEach(function(cell) {
+                content += "<td>" + cell + "</td>" ;
+            });
+            content += "</tr>";
+        });
+        return content;
+    }
+    $(document).ready(function () {
+        var $loader = $('#loader');
+        $loader.hide();
+        $.sendRequest = function () {
+            $("#table").hide();
+            $loader.show(100);
+            $.post("find.php", $("#query").serialize(), function (output) {
+                $("#output").html(createTable(parseResult(output)));
+                $loader.hide();
+                $("#table").show();
+            });
+        };
+        $('#submit').click($.sendRequest);
+    });
+</script>
+</body>
+</html>
