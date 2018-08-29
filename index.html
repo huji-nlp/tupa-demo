@@ -98,6 +98,34 @@
     <div class="publications">
         <ul>
 
+            <li><a name="udst2018"></a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b><i>Universal Dependency Parsing with a General Transition-Based DAG Parser</i></b>.
+                        <br>
+                        <b>Daniel Hershcovich</b>, Omri Abend and Ari Rappoport.<br>
+                        <a href='http://universaldependencies.org/conll18' target="_blank">CoNLL 2018 UD Shared Task</a>
+                        (system paper).
+                    </div>
+                    <div class="row col-md-3 btn-group mr-2 v-center" role="group">
+                        <a href="udst2018.pdf" class="btn btn-outline-primary btn-sm">pdf</a>
+                        <a href="#" class="btn btn-outline-primary btn-sm"
+                           onclick="$('#udst2018_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
+                        <a href="udst2018.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="https://github.com/CoNLL-UD-2018/HUJI" class="btn btn-outline-primary btn-sm">code</a>
+                    </div>
+                    <div id="udst2018_abstract" class="abstract row" style="display:none;">
+                        <i>This paper presents our experiments with applying TUPA to the CoNLL 2018 UD shared task. TUPA
+                            is a general neural transition-based DAG parser, which we use to present the first
+                            experiments on recovering enhanced dependencies as part of the general parsing task. TUPA
+                            was designed for parsing UCCA, a cross-linguistic semantic annotation scheme, exhibiting
+                            reentrancy, discontinuity and non-terminal nodes. By converting UD trees and graphs to a
+                            UCCA-like DAG format, we train TUPA almost without modification on the UD parsing task. The
+                            generic nature of our approach lends itself naturally to multitask learning.</i>
+                    </div>
+                </div>
+            </li>
+
             <li><a name="acl2018"></a>
                 <div class="row">
                     <div class="col-md-4">
@@ -114,7 +142,8 @@
                         <a href="P18-1035.Notes.pdf" class="btn btn-outline-primary btn-sm">supplementary material</a>
                         <a href="acl2018_poster.pdf" class="btn btn-outline-primary btn-sm">poster</a>
                         <a href="https://github.com/danielhers/tupa" class="btn btn-outline-primary btn-sm">code</a>
-                        <a href="https://github.com/UniversalConceptualCognitiveAnnotation/UCCA_English-WSJ" class="btn btn-outline-primary btn-sm">data</a>
+                        <a href="https://github.com/UniversalConceptualCognitiveAnnotation/UCCA_English-WSJ"
+                           class="btn btn-outline-primary btn-sm">data</a>
                     </div>
                     <div id="acl2018_abstract" class="abstract row" style="display:none;">
                         <i>The ability to consolidate information of different types is at the core of intelligence, and
