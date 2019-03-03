@@ -16,7 +16,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101317305-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-101317305-2');
@@ -58,11 +62,12 @@
 
     <div class="text" style="text-align:justify">
         <p>I am a postdoctoral researcher at the
-        <a href="https://di.ku.dk/english" target="_blank">Department of Computer Science</a>,
-        <a href="https://www.ku.dk/english" target="_blank">University of Copenhagen</a>.
-        I completed my Ph.D. in the <a href="http://elsc.huji.ac.il/phd">Program in Brain Research: Computation and
-            Information Processing</a> of the <a href="http://elsc.huji.ac.il/">Edmond &amp; Lily Safra Center for Brain
-            Sciences.</a>
+            <a href="https://di.ku.dk/english" target="_blank">Department of Computer Science</a>,
+            <a href="https://www.ku.dk/english" target="_blank">University of Copenhagen</a>.
+            I completed my Ph.D. in the <a href="http://elsc.huji.ac.il/phd">Program in Brain Research: Computation and
+                Information Processing</a> of the <a href="http://elsc.huji.ac.il/">Edmond &amp; Lily Safra Center for
+                Brain
+                Sciences.</a>
             I was member of the Computational Linguistics and Natural Language Processing lab at the <a
                     href="http://www.cs.huji.ac.il">School of Computer Science and Engineering of The Hebrew University
                 of Jerusalem</a>.
@@ -93,7 +98,8 @@
             <li>We organized a <a href="http://tinyurl.com/semeval-ucca">shared task on UCCA parsing</a> in
                 <a href="http://alt.qcri.org/semeval2019/">SemEval 2019</a>,
                 to be held on June 6-7 in Minneapolis, USA (collocated with
-                <a href="https://naacl2019.org">NAACL-HLT</a>).</li>
+                <a href="https://naacl2019.org">NAACL-HLT</a>).
+            </li>
         </ul>
     </div>
 
@@ -105,6 +111,41 @@
 
     <div class="publications">
         <ul>
+
+            <li><a name="naacl2019"></a>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b><i>Content Differences in Syntactic and Semantic Representation</i></b>.
+                        <br>
+                        <b>Daniel Hershcovich</b>, Omri Abend and Ari Rappoport.<br>
+                        <a href='https://naacl2019.org' target="_blank">NAACL 2019</a> (long paper).
+                    </div>
+                    <div class="row col-md-3 btn-group mr-2 v-center" role="group">
+                        <a href="#" class="btn btn-outline-primary btn-sm"
+                           onclick="$('#naacl2019_abstract').slideToggle(); $(this).toggleClass('active'); return false;">abstract</a>
+                        <a href="divergences.bib" class="btn btn-outline-primary btn-sm">bib</a>
+                        <a href="https://github.com/danielhers/synsem" class="btn btn-outline-primary btn-sm">code</a>
+                    </div>
+                    <div id="naacl2019_abstract" class="abstract row" style="display:none;">
+                        <i>Syntactic analysis plays an important role in semantic parsing, but this role remains a topic
+                            of ongoing debate. The debate has been constrained by the scarcity of empirical comparative
+                            studies between syntactic and semantic schemes, which hinders the development of parsing
+                            methods informed by the details of target schemes and constructions. We target this gap, and
+                            take Universal Dependencies (UD) and UCCA as a test case. After abstracting away from
+                            differences of convention or formalism, we find that most content divergences can be
+                            ascribed to: (1) UCCA's distinction between a Scene and a non-Scene; (2) UCCA's distinction
+                            between primary relations, secondary ones and participants; (3) different treatment of
+                            multi-word expressions, and (4) different treatment of inter-clause linkage. We further
+                            discuss the long tail of cases where the two schemes take markedly different approaches.
+                            Finally, we show that the proposed comparison methodology can be used for fine-grained
+                            evaluation of UCCA parsing, highlighting both challenges and potential sources for
+                            improvement. The substantial differences between the schemes suggest that semantic parsers
+                            are likely to benefit downstream text understanding applications beyond their syntactic
+                            counterparts.
+                        </i>
+                    </div>
+                </div>
+            </li>
 
             <li><a name="udst2018"></a>
                 <div class="row">
@@ -173,7 +214,8 @@
                         <br>
                         <b>Daniel Hershcovich</b>, Omri Abend and Ari Rappoport.<br>
                         <a href='http://acl2017.org' target="_blank">ACL 2017</a> (long paper),
-                        <a href='https://acl2017.wordpress.com/2017/08/03/outstanding-and-best-papers-and-the-decision-process/' target="_blank"><span style="color:red">Outstanding Paper Award</span></a>.
+                        <a href='https://acl2017.wordpress.com/2017/08/03/outstanding-and-best-papers-and-the-decision-process/'
+                           target="_blank"><span style="color:red">Outstanding Paper Award</span></a>.
                     </div>
                     <div class="row col-md-3 btn-group mr-2 v-center" role="group">
                         <a href="P17-1104.pdf" class="btn btn-outline-primary btn-sm">pdf</a>
@@ -422,12 +464,12 @@
 
     <!--<h2 class="header"><a name="teaching"></a>Teaching</h2>-->
     <!--<ul>-->
-        <!--<li>Human Language from a Computational Perspective (TA):-->
-            <!--<a href="http://moodle.huji.ac.il/hu14/course/view.php?id=67127">2014</a>,-->
-            <!--<a href="http://moodle.huji.ac.il/hu15/course/view.php?id=67127">2015</a>,-->
-            <!--<a href="http://moodle2.cs.huji.ac.il/nu16/course/view.php?id=67127">2016</a>,-->
-            <!--<a href="https://moodle2.cs.huji.ac.il/nu17/course/view.php?id=67127">2017</a>-->
-        <!--</li>-->
+    <!--<li>Human Language from a Computational Perspective (TA):-->
+    <!--<a href="http://moodle.huji.ac.il/hu14/course/view.php?id=67127">2014</a>,-->
+    <!--<a href="http://moodle.huji.ac.il/hu15/course/view.php?id=67127">2015</a>,-->
+    <!--<a href="http://moodle2.cs.huji.ac.il/nu16/course/view.php?id=67127">2016</a>,-->
+    <!--<a href="https://moodle2.cs.huji.ac.il/nu17/course/view.php?id=67127">2017</a>-->
+    <!--</li>-->
     <!--</ul>-->
 
     <!--<hr>-->
