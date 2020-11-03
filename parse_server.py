@@ -28,7 +28,7 @@ SCRIPT_DIR = os.path.dirname(__file__)
 app = Flask(__name__)
 assets = flask_assets.Environment()
 assets.init_app(app)
-assets_env = AssetsEnvironment("./", "/static")
+assets_env = AssetsEnvironment("./static/", "/static")
 jinja_environment = jinja2.Environment(
     autoescape=True,
     loader=jinja2.FileSystemLoader(os.path.join(SCRIPT_DIR, "templates")),
