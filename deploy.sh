@@ -4,7 +4,7 @@ VERSION=1.3.10
 MODEL=sparse  # ucca-bilstm
 wget https://github.com/huji-nlp/tupa/releases/download/v$VERSION/$MODEL-$VERSION.tar.gz
 tar xvzf $MODEL-$VERSION.tar.gz
-export SPACY_MODEL=en_core_web_lg
+export SPACY_MODEL=en_core_web_sm  # en_core_web_lg
 export PARSER_MODEL=models/$MODEL
 export PARSER_TYPE=sparse
 export IP=0.0.0.0
