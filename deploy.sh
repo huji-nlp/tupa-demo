@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-wget https://github.com/huji-nlp/tupa/releases/download/v1.3.10/ucca-bilstm-1.3.10.tar.gz
-tar xvzf ucca-bilstm-1.3.10.tar.gz
+VERSION=1.3.10
+MODEL=sparse  # ucca-bilstm
+wget https://github.com/huji-nlp/tupa/releases/download/v$VERSION/$MODEL-$VERSION.tar.gz
+tar xvzf $MODEL-$VERSION.tar.gz
 export SPACY_MODEL=en_core_web_lg
-export PARSER_MODEL=models/ucca-bilstm
-export PARSER_TYPE=bilstm
+export PARSER_MODEL=models/$MODEL
+export PARSER_TYPE=sparse
 export IP=0.0.0.0
 echo localhost:5001 >server_name.txt
 until python parse_server.py -vv; do
