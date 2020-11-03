@@ -7,7 +7,7 @@ export PARSER_MODEL=models/ucca-bilstm
 export PARSER_TYPE=bilstm
 export IP=0.0.0.0
 echo localhost:5001 >server_name.txt
-until python server/parse_server.py -vv; do
+until python parse_server.py -vv; do
   echo Re-running server...
   sleep 10
 done
