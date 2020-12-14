@@ -59,7 +59,7 @@
     </div>
     <div class="row">
         <div class="col-md-10">
-            <form id="demo" action="action.php" method="post">
+            <form id="demo" action="https://www.cs.huji.ac.il/lovodkin93/tupa-demo/action.php" method="post">
                 <div class="row"><b>Input text:</b></div>
                 <div class="row">
                     <textarea id="input" name="input" placeholder="e.g., After graduation, John moved to New York City."
@@ -121,7 +121,7 @@
                 </tr>
                 <tr>
                     <td>H</td>
-                    <td>linked scene</td>
+                    <td>parallel scene</td>
                 </tr>
                 <tr>
                     <td>C</td>
@@ -213,9 +213,9 @@
             //alert("Sorry, the demo is currently undergoing maintenance. It will be back soon.");
             if ($.trim($input.val())) {
                 $loader.show(100);
-                $.post("action.php", $("#demo").serialize(), function (output) {
-                    ga('send', 'pageview', '/action.php');
-                    $.post("action.php", output, function (data) {
+                $.post("https://www.cs.huji.ac.il/lovodkin93/tupa-demo/action.php", $("#demo").serialize(), function (output) {
+                    ga('send', 'pageview', '/https://www.cs.huji.ac.il/lovodkin93/tupa-demo/action.php');
+                    $.post("https://www.cs.huji.ac.il/lovodkin93/tupa-demo/action.php", output, function (data) {
                         $("#graph").attr("src", "data:image/png;base64," + data);
                     });
                     $("#output").text(output);
